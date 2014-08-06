@@ -7,7 +7,7 @@ require 'active_support'
 
 module CalendarDateSelect
 
-  Files = [
+  FILES = [
     '/lib/assets',
     '/lib/assets/javascripts/calendar_date_select',
     '/lib/assets/stylesheets/calendar_date_select', 
@@ -37,9 +37,9 @@ module CalendarDateSelect
         desc "Install assets required by calendar_date_select gem"
         task :install do
 
-          Files.each do |f|
+          FILES.each do |f|
             source = File.join(File.dirname(__FILE__), "..", f)
-            dest = File.join(Rails.root, f)
+            dest = File.join(::Rails.root, f)
             FileUtils.mkdir_p(dest, :verbose => true)
             FileUtils.cp(Dir.glob(source+'/*.*'), dest, :verbose => true)
           end
